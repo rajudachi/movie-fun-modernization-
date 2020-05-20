@@ -1,33 +1,9 @@
 apply from: "../../java.gradle"
 
-//apply plugin: "java"
-//apply plugin: "war"
-//apply plugin: "org.springframework.boot"
-//apply plugin: "io.spring.dependency-management"
+//group = 'org.superbiz.moviefun.albums'
+//version = '1.0.0-SNAPSHOT'
+//sourceCompatibility = 1.8
 
-group = 'org.superbiz.moviefun.albums'
-version = '1.0.0-SNAPSHOT'
-sourceCompatibility = 1.8
-
-
-//dependencies {
-//    compile "org.springframework:spring-core:$springVersion"
-//    compile "org.springframework:spring-context:$springVersion"
-//    compile "org.springframework:spring-tx:$springVersion"
-//    compile "org.springframework:spring-web:$springVersion"
-////    compile "org.springframework.boot:spring-boot-starter-data-jpa"
-//    compile "org.springframework:spring-jdbc:$springVersion"
-//
-//    compile "mysql:mysql-connector-java:5.1.40"
-//    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.7.0"
-//    compile "commons-lang:commons-lang:2.4"
-//    compile "org.apache.tika:tika-core:1.14"
-//    compile "com.amazonaws:aws-java-sdk:1.11.74"
-//
-//    compile "org.hibernate:hibernate-core:$hibernateVersion"
-//    compile "javax.servlet:javax.servlet-api:3.1.0"
-//    compile "org.slf4j:slf4j-api:$slf4jVersion"
-//}
 
 dependencies {
     compile "org.springframework:spring-core:$springVersion"

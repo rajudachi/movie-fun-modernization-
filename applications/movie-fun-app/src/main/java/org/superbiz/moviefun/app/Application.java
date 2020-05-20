@@ -18,16 +18,16 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.superbiz.moviefun.albums.blobstore.BlobStore;
 import org.superbiz.moviefun.albums.blobstore.S3Store;
-import MovieServlet;
+import org.superbiz.moviefun.MovieServlet;
 
 @SpringBootApplication(exclude = {
         DataSourceAutoConfiguration.class,
         HibernateJpaAutoConfiguration.class
 })
 //@SpringBootApplication
-@ComponentScan({"org.superbiz.moviefun", "org.superbiz.moviefun.albums"})
+@ComponentScan({"org.superbiz.moviefun","org.superbiz.moviefun", "org.superbiz.moviefun.albums"})
 @Configuration
-@EnableJpaRepositories(basePackages = {"org.superbiz.moviefun.movies","org.superbiz.moviefun.albums"})
+@EnableJpaRepositories(basePackages = {"org.superbiz.moviefun.movies","org.superbiz.moviefun.albums","org.superbiz.moviefun"})
 @EnableTransactionManagement
 public class Application {
     static Logger logger = LoggerFactory.getLogger(Application.class);
