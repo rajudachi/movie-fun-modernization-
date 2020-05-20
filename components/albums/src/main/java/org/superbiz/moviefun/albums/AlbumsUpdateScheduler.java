@@ -22,11 +22,6 @@ public class AlbumsUpdateScheduler {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     public AlbumsUpdateScheduler(DataSource dataSource, AlbumsUpdater albumsUpdater) {
-        logger.info("===============AlbumsUpdateScheduler===================");
-        if (dataSource == null ){
-            logger.info("===============DataSource NULL===================");
-
-        }
         this.jdbcTemplate = new JdbcTemplate(dataSource);
         this.albumsUpdater = albumsUpdater;
     }

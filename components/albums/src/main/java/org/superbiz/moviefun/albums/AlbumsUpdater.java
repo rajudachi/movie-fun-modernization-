@@ -6,17 +6,17 @@ import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.superbiz.moviefun.albums.blobstore.Blob;
-import org.superbiz.moviefun.albums.blobstore.BlobStore;
+import org.superbiz.moviefun.CsvUtils;
+import org.superbiz.moviefun.blobstore.Blob;
+import org.superbiz.moviefun.blobstore.BlobStore;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import static com.fasterxml.jackson.dataformat.csv.CsvSchema.ColumnType.NUMBER;
-import static org.superbiz.moviefun.albums.CsvUtils.readFromCsv;
-
+import static com.fasterxml.jackson.dataformat.csv.CsvSchema.ColumnType;
+import static com.fasterxml.jackson.dataformat.csv.CsvSchema.builder;
 
 @Service
 public class AlbumsUpdater {
@@ -30,11 +30,11 @@ public class AlbumsUpdater {
         this.blobStore = blobStore;
         this.albumsBean = albumsBean;
 
-        CsvSchema schema = CsvSchema.builder()
+        CsvSchema schema = builder()
             .addColumn("artist")
             .addColumn("title")
-            .addColumn("year", NUMBER)
-            .addColumn("rating", NUMBER)
+            .addColumn("year", ColumnType.NUMBER)
+            .addColumn("rating", ColumnType.NUMBER)
             .build();
 
         objectReader = new CsvMapper().readerFor(Album.class).with(schema);
@@ -48,7 +48,7 @@ public class AlbumsUpdater {
             return;
         }
 
-        List<Album> albumsToHave = readFromCsv(objectReader, maybeBlob.get().inputStream);
+        List<Album> albumsToHave = CsvUtils.readFromCsv(objectReader, maybeBlob.get().inputStream);
         List<Album> albumsWeHave = albumsBean.getAlbums();
 
         createNewAlbums(albumsToHave, albumsWeHave);

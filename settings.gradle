@@ -1,7 +1,6 @@
-rootProject.name = 'moviefun'
+rootProject.name = "moviefun"
 
 include "applications:movie-fun-app"
-include "components:movies"
-include "components:blobstore"
-include "components:albums"
 
+include "components:albums"
+include "components:movies"
