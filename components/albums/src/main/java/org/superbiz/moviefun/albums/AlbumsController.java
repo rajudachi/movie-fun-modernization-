@@ -19,31 +19,32 @@ import java.util.Map;
 import java.util.Optional;
 
 import static java.lang.String.format;
-import static org.springframework.http.MediaType.IMAGE_JPEG_VALUE;
 
 @Controller
 @RequestMapping("/albums")
 public class AlbumsController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    private final AlbumsBean albumsBean;
+    private final AlbumsRepository albumsRepository;
     private final BlobStore blobStore;
 
-    public AlbumsController(AlbumsBean albumsBean, BlobStore blobStore) {
-        this.albumsBean = albumsBean;
+    public AlbumsController(AlbumsRepository albumsRepository, BlobStore blobStore) {
+        this.albumsRepository = albumsRepository;
         this.blobStore = blobStore;
     }
 
 
     @GetMapping
     public String index(Map<String, Object> model) {
-        model.put("albums", albumsBean.getAlbums());
+        model.put("albums", albumsRepository.getAlbums());
         return "albums";
     }
 
     @GetMapping("/{albumId}")
     public String details(@PathVariable long albumId, Map<String, Object> model) {
-        model.put("album", albumsBean.find(albumId));
+        model.put("album", albumsRepository.find(albumId));
+        //Long newVal = new Long(albumId);
+        //model.put("album", albumsClient.findRange(newVal.toString(), "id",0,1));
         return "albumDetails";
     }
 

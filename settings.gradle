@@ -4,3 +4,7 @@ include "applications:movie-fun-app"
 
 include "components:albums"
 include "components:movies"
+include "components:movie-fun-api"
+
+include "applications:movie-service"
+include "applications:album-service"
