@@ -54,3 +54,5 @@ task dependenciesGraph(dependsOn: "dependenciesGraphDot", type: Exec) {
 task clean(type: Delete) {
     delete "build"
 }
+
+defaultTasks "clean", "build", "dependenciesGraph"

@@ -26,17 +26,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * @version $Revision$ $Date$
- */
 @Component
 public class MovieServlet extends HttpServlet {
 
     private static final long serialVersionUID = -5832176047021911038L;
 
     public static int PAGE_SIZE = 5;
-
-    //private MoviesRepository moviesRepository;
 
     private MoviesClient moviesClient;
 
@@ -65,10 +60,9 @@ public class MovieServlet extends HttpServlet {
             int rating = Integer.parseInt(request.getParameter("rating"));
             int year = Integer.parseInt(request.getParameter("year"));
 
-            MovieInfo movie = new MovieInfo(title, director, genre, rating, year);
+            MovieInfo movie = new MovieInfo(null, title, director, genre, rating, year);
 
             moviesClient.addMovie(movie);
-            //moviesRepository.addMovie(movie);
             response.sendRedirect("moviefun");
             return;
 

@@ -1,4 +1,4 @@
-server.port: 8083
+server.port: 8081
 
 spring:
   jpa:
@@ -17,3 +17,8 @@ spring:
 logging.level:
   root: WARN
   org.superbiz.moviefun: DEBUG
+
+s3:
+  accessKey: <access key id>
+  secretKey: <secret access key>
+  bucketName: <name of the bucket>
