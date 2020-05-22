@@ -30,4 +30,6 @@ applications:
   - movie-fun-sso
   - movie-fun-registry
   env:
+    ALBUMS_URL: http://album-service-raju.cfapps.io/albums
+    MOVIES_URL: http://movie-service-raju.cfapps.io/movies
     GRANT_TYPE: authorization_code
